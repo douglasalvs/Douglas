@@ -1,21 +1,34 @@
+
 import streamlit as st
 
 st.set_page_config(page_title="Perfil - Douglas Alves", layout="centered")
 
-st.image("https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png", width=200)
+st.markdown(
+    """
+    <a href="https://www.tesla.com/about" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" width="200">
+    </a>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("Douglas Alves")
 
-# Campo para texto descritivo
 descricao = st.text_area(
-    "Escreva um texto sobre você:",
+    "Curiosidades sobre mim:",
     "Fale sobre seus interesses, objetivos e habilidades..."
 )
 
-# Mostrar o texto digitado
-if descricao:
-    st.subheader("Seu texto:")
+st.subheader("Seu texto:")
+
+
+col1, col2 = st.columns([1, 2])
+
+with col1:
+    st.image(
+        "https://upload.wikimedia.org/wikipedia/en/d/d7/Harry_Potter_character_poster.jpg",
+        width=200
+    )
+
+with col2:
     st.write(descricao)
-st.image("harrypotter.jpg")
-st.write("Site Douglas")
-st.link_button("Acessar", "https://sites.google.com/academico.ifpb.edu.br/douglas-antonio-info/in%C3%ADcio")
